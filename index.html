@@ -139,7 +139,7 @@
       const music = document.getElementById('birthdayMusic');
       // 尝试自动播放，失败则提示点击播放
       music.play().catch(() => {
-        alert('🎂 请点击页面任意位置，即可播放生日音乐～');
+        alert('🎂 Click anywhere on the page to play the birthday music!');
         document.body.addEventListener('click', () => {
           music.play();
         }, { once: true });
