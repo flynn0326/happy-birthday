@@ -15,8 +15,9 @@
   <div class="container">
     <div class="one">
       <h1 class="one">
-        <span data-node-name="greeting">Hey</span>
-        <span data-node-name="name">Lydia</span>
+        <!-- 替换为Laurent的问候语 -->
+        <span data-node-name="greeting">Hiya</span>
+        <span data-node-name="name">Laurent</span>
       </h1>
       <p class="two" data-node-name="greetingText">I really like your name btw!</p>
     </div>
@@ -50,7 +51,8 @@
       <img src="img/hat.svg" alt="" class="hat">
       <div class="wish">
         <h3 class="wish-hbd" data-node-name="wishHeading">Happy Birthday!</h3>
-        <h5 data-node-name="wishText">May the js.prototypes always be with you! ;)</h5>
+        <!-- 替换为Laurent的专属祝福语 -->
+        <h5 data-node-name="wishText">May happiness always be with you! ;)</h5>
       </div>
     </div>
     <div class="seven">
@@ -125,9 +127,30 @@
       <p class="last-smile" data-node-name="outroSmiley">:)</p>
     </div>
   </div>
-</body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
-<script type="application/javascript" src="script/main.js"></script>
+  <!-- 音频播放标签：自动播放生日音乐 -->
+  <audio id="birthdayMusic" src="audio/birthday.mp3" loop>
+    您的浏览器不支持音频播放
+  </audio>
+
+  <!-- 音乐自动播放逻辑（兼容浏览器限制） -->
+  <script>
+    window.addEventListener('load', function() {
+      const music = document.getElementById('birthdayMusic');
+      // 尝试自动播放，失败则提示点击播放
+      music.play().catch(() => {
+        alert('🎂 请点击页面任意位置，即可播放生日音乐～');
+        document.body.addEventListener('click', () => {
+          music.play();
+        }, { once: true });
+      });
+    });
+  </script>
+
+  <!-- 原有动画脚本保留 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+  <script type="application/javascript" src="script/main.js"></script>
+
+</body>
 
 </html>
